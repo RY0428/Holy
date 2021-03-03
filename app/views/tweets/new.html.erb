@@ -1,0 +1,26 @@
+<h1>投稿を作成</h1>
+
+<%= form_for @tweet do |f| %>
+  <div class="field">
+    <%= f.label :君の旅の記録　シェアしよう %>
+  </div>
+  <%= f.text_area :body, class: "hoge", size: "200x10" %>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  
+  <div>
+    <%= f.label :video %>
+    <%= f.file_field :video %>
+  </div>
+
+  <%= f.select :category, [["スポット", "spots"], ["宿泊施設", "hotels"], ["レストラン", "restaurants"]], include_blank: "Pick Up" %>
+  <br>
+  <%= f.submit "投稿する" %>
+  </br>
+<% end %>
+
+<%= link_to '投稿一覧に戻る', :controller => "main", :action => "index" %>
+

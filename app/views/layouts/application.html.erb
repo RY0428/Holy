@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>タイバックパッカーの聖地</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1><%= link_to 'タイバックパッカーの聖地', main_index_path %></h1>
+      <div class="header-list">
+
+      <p id= "container">
+      <button class="btn"> <%= link_to 'Spots', spots_index_path%></button>
+      <%= link_to 'Hotels', hotels_index_path%>
+      <%= link_to 'Restaurants', restaurants_index_path%>
+      <%= link_to "NewPosts", tweets_new_path %>
+      <%= link_to "Login", main_index_path %>
+      <%= link_to "SignUp", new_user_registration_path %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      
+      <h3>Search </h3>
+      <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag '検索する'  %>
+      <% end %>
+      
+     </p>
+
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+     <p>Copyright © GeekSalon All Rights Reserved.</p>
+    </footer>
+  </body>
+  
+</html>
+
+
+
